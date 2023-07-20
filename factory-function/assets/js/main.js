@@ -16,7 +16,18 @@ btnClear.addEventListener("click", (e) => {
   clear();
 });
 
+const btnDel = document.getElementById("btn-del");
+btnDel.addEventListener("click", (e) => {
+  e.preventDefault();
+  del();
+});
+
 const clear = () => {
   currentValue = "";
   prevOperand.innerText = "";
+};
+
+const del = () => {
+  currentValue = currentValue.slice(0, -1);
+  prevOperand.innerText = currentValue;
 };
