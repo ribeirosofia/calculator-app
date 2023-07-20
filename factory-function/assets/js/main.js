@@ -10,4 +10,13 @@ btnNum.forEach((btnNum) => {
   });
 });
 
-console.log(btnNum);
+const btnClear = document.getElementById("btn-clear");
+btnClear.addEventListener("click", (e) => {
+  e.preventDefault();
+  clear();
+});
+
+const clear = () => {
+  currentValue = "";
+  prevOperand.innerText = "";
+};
