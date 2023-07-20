@@ -1,16 +1,16 @@
 :root {
   --pure-background: #1f695c;
-  --display-background: #2d2b38;
-  --calculator-background: #292733;
-  --primary-num-btn: #727c87;
-  --secondary-num-btn: #59636e;
-  --primary-teal-btn: #49e295;
-  --secondary-teal-btn: #23a969;
-  --primary-btn-equal: #ff822e;
-  --secondary-btn-equal: #ff6517;
+  --display-background: #2e2e2e;
+  --calculator-background: #404040;
+  --primary-num-btn: #bfbfbf;
+  --secondary-num-btn: #968a87;
+  --primary-teal-btn: #1f2d27;
+  --secondary-teal-btn: #101a13;
   --font-output: #ffffff;
-  --font-btn: #ced4da;
-  --font-teal-btn: #212529;
+  --font-btn: #212529;
+  --font-btn-teal: #49e295;
+  --primary-equals-btn: #31a38e;
+  --secondary-equals-btn: #2a8c7a;
 }
 
 * {
@@ -48,7 +48,6 @@ h1 {
   color: var(--font-output);
   background: var(--display-background);
   height: 150px;
-  /* margin: 12px; */
   display: flex;
   align-content: flex-end;
   justify-content: space-between;
@@ -58,13 +57,13 @@ h1 {
   word-break: break-all;
 }
 
-.previous-operand {
+#previous-operand {
   padding-top: 15px;
   margin-right: 15px;
   border: 1px solid cyan;
 }
 
-.current-operand {
+#current-operand {
   border: 1px solid yellow;
   padding: 15px;
   margin: 10px;
@@ -95,10 +94,10 @@ h1 {
   background: var(--primary-num-btn);
 }
 
-.controls .btn-sum {
+.controls #btn-sum {
   grid-row: 3 / 5;
   grid-column: 4;
-  height: 100px;
+  height: 104px;
 }
 
 .controls > button:hover {
@@ -107,20 +106,21 @@ h1 {
 
 .controls .teal {
   background: var(--primary-teal-btn);
-  color: var(--font-teal-btn);
+  color: var(--font-btn-teal);
 }
 
 .controls .teal:hover {
   background: var(--secondary-teal-btn);
 }
 
-.controls .btn-eq {
-  background: var(--primary-btn-equal);
+.controls #btn-equals {
   grid-column: 3 / 5;
   grid-row: 5;
   width: 200px;
+  background: var(--primary-equals-btn);
+  color: var(--font-btn);
 }
 
-.controls .btn-eq:hover {
-  background: var(--secondary-btn-equal);
+#btn-equals:hover {
+  background: var(--secondary-equals-btn);
 }
