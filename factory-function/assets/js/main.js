@@ -1,10 +1,12 @@
-const numberButtons = document.querySelector(".btn-num");
+const btnNum = document.querySelectorAll(".btn-num");
 const prevOperand = document.querySelector(".previous-operand");
 
-const btnContent = `O conteúdo do botão é ${numberButtons.innerText}`;
+const btnContent = `O conteúdo do botão é ${btnNum.innerText}`;
 
-numberButtons.addEventListener("click", (event) => {
-  prevOperand.innerText = event.target.innerText;
+btnNum.forEach((btnNum) => {
+  btnNum.addEventListener("click", (e) => {
+    prevOperand.innerText = e.target.innerText;
+  });
 });
 
-console.log(numberButtons);
+console.log(btnNum);
