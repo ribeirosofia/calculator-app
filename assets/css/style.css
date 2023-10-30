@@ -1,10 +1,12 @@
 :root {
   --output-color: #302c36;
   --wrapper-color: #4c4954;
+  --num-hover: #615d6b;
   --font-color: #fff;
   --teal-color: #f0bfff;
-  --teal-hover: #F07EFF;
+  --teal-hover: #f07eff;
   --font-teal-color: #7f3178;
+  --equals-hover: #8f3888;
 }
 
 * {
@@ -85,12 +87,16 @@ h1 {
   color: var(--font-color);
 }
 
+.controls .btn-num:hover {
+  background-color: var(--num-hover);
+}
+
 .controls .teal {
   background-color: var(--teal-color);
   color: var(--font-teal-color);
 }
 
-.controls .teal:hover{
+.controls .teal:hover {
   background-color: var(--teal-hover);
 }
 
@@ -107,4 +113,8 @@ h1 {
   width: 200px;
   background-color: var(--font-teal-color);
   color: var(--font-color);
+}
+
+.controls #btn-equals:hover {
+  background-color: var(--equals-hover);
 }
