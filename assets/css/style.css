@@ -1,8 +1,19 @@
+:root {
+  --output-color: #302c36;
+  --wrapper-color: #4c4954;
+  --num-hover: #615d6b;
+  --font-color: #fff;
+  --teal-color: #f0bfff;
+  --teal-hover: #f07eff;
+  --font-teal-color: #7f3178;
+  --equals-hover: #8f3888;
+}
+
 * {
-    box-sizing: border-box;
-    outline: 0;
-    margin: 0 auto;
-  }
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0 auto;
+}
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -12,14 +23,98 @@ body {
 }
 
 .container {
-    max-width: 640px;
-    margin: 50px;
-    background: #fff;
-    padding: 60px;
-    border-radius: 10px;
-  }
+  max-width: 640px;
+  margin: 50px;
+  background: #fff;
+  padding: 60px;
+  border-radius: 10px;
+}
 
 h1 {
-    text-align: center;
-    padding-bottom: 30px;
-  }
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.output {
+  height: 150px;
+  display: flex;
+  align-content: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: var(--output-color);
+  border-radius: 20px 20px 0 0;
+}
+
+#display-num {
+  color: var(--font-color);
+  padding: 15px;
+  margin: 10px;
+  max-height: 50px;
+  font-size: 40px;
+}
+
+.wrapper {
+  background-color: var(--wrapper-color);
+  border-radius: 0 0 10px 10px;
+}
+
+.controls {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding: 20px 30px 30px;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.controls > button {
+  cursor: pointer;
+  font-size: 20px;
+  outline: unset;
+  border: none;
+  border-radius: 40px;
+  width: 90px;
+  height: 50px;
+}
+
+.controls .btn-num {
+  background-color: var(--output-color);
+  color: var(--font-color);
+}
+
+.controls .btn-num:hover {
+  background-color: var(--num-hover);
+}
+
+.controls .teal {
+  background-color: var(--teal-color);
+  color: var(--font-teal-color);
+}
+
+.controls .teal:hover {
+  background-color: var(--teal-hover);
+}
+
+.controls #btn-sum {
+  grid-row: 3 / 5;
+  grid-column: 4;
+  height: 150px;
+  border-radius: 30px;
+}
+
+.controls #btn-equals {
+  grid-column: 3 / 5;
+  grid-row: 5;
+  width: 200px;
+  background-color: var(--font-teal-color);
+  color: var(--font-color);
+}
+
+.controls #btn-equals:hover {
+  background-color: var(--equals-hover);
+}
