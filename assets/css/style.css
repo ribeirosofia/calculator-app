@@ -1,8 +1,8 @@
 * {
-    box-sizing: border-box;
-    outline: 0;
-    margin: 0 auto;
-  }
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0 auto;
+}
 
 body {
   font-family: "Montserrat", sans-serif;
@@ -12,14 +12,35 @@ body {
 }
 
 .container {
-    max-width: 640px;
-    margin: 50px;
-    background: #fff;
-    padding: 60px;
-    border-radius: 10px;
-  }
+  max-width: 640px;
+  margin: 50px;
+  background: #fff;
+  padding: 60px;
+  border-radius: 10px;
+}
 
 h1 {
-    text-align: center;
-    padding-bottom: 30px;
-  }
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.controls {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding: 20px 30px 30px;
+  grid-gap: 15px;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.controls > button {
+  cursor: pointer;
+  font-size: 20px;
+  outline: unset;
+  border: none;
+  border-radius: 40px;
+  width: 90px;
+  height: 50px;
+}
