@@ -24,6 +24,17 @@ h1 {
   padding-bottom: 30px;
 }
 
+.output {
+  height: 150px;
+  display: flex;
+  align-content: flex-end;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
 .controls {
   display: grid;
   justify-content: center;
