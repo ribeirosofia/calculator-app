@@ -3,7 +3,7 @@
   --wrapper-color: #4c4954;
   --font-color: #fff;
   --teal-color: #f0bfff;
-  --font-teal-color: #783e8a;
+  --font-teal-color: #7f3178;
 }
 
 * {
@@ -90,4 +90,6 @@ h1 {
   grid-column: 3 / 5;
   grid-row: 5;
   width: 200px;
+  background-color: var(--font-teal-color);
+  color: var(--font-color);
 }
