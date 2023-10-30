@@ -2,6 +2,8 @@
   --output-color: #302c36;
   --wrapper-color: #4c4954;
   --font-color: #fff;
+  --teal-color: #f0bfff;
+  --font-teal-color: #783e8a;
 }
 
 * {
@@ -70,6 +72,11 @@ h1 {
 .controls .btn-num {
   background-color: var(--output-color);
   color: var(--font-color);
+}
+
+.controls .teal {
+  background-color: var(--teal-color);
+  color: var(--font-teal-color);
 }
 
 .controls #btn-sum {
