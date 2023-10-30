@@ -1,6 +1,7 @@
 :root {
   --output-color: #302c36;
   --wrapper-color: #4c4954;
+  --font-color: #fff;
 }
 
 * {
@@ -66,6 +67,11 @@ h1 {
   height: 50px;
 }
 
+.controls .btn-num {
+  background-color: var(--output-color);
+  color: var(--font-color);
+}
+
 .controls #btn-sum {
   grid-row: 3 / 5;
   grid-column: 4;
@@ -78,4 +84,3 @@ h1 {
   grid-row: 5;
   width: 200px;
 }
-
