@@ -25,4 +25,14 @@ btnDiv.addEventListener("click", (e) => {
   outputDisplay.textContent += "/";
 });
 
+btnDel.addEventListener("click", (e) => {
+  e.preventDefault();
+  del();
+});
 
+const del = () => {
+  const currentContent = outputDisplay.textContent;
+  if (currentContent.length > 0) {
+    outputDisplay.textContent = currentContent.slice(0, -1);
+  }
+};
