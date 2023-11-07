@@ -1,10 +1,18 @@
-const outputDisplay = document.getElementById("display-num");
+let outputDisplay = document.getElementById("display-num");
+
+const btnNum = document.querySelectorAll(".btn-num");
 const btnSum = document.getElementById("btn-sum");
 const btnMin = document.getElementById("btn-min");
 const btnMultiply = document.getElementById("btn-multiply");
 const btnDiv = document.getElementById("btn-div");
 const btnDel = document.getElementById("btn-del");
 const btnClear = document.getElementById("btn-clear");
+
+btnNum.forEach((numbers) => {
+  numbers.addEventListener("click", (e) => {
+    outputDisplay.textContent += e.target.textContent;
+  });
+});
 
 btnSum.addEventListener("click", (e) => {
   e.preventDefault();
