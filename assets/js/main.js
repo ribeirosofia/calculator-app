@@ -1,4 +1,4 @@
-const outputDisplay = document.getElementById("display-num");
+let outputDisplay = document.getElementById("display-num");
 
 const btnNum = document.querySelectorAll(".btn-num");
 const btnSum = document.getElementById("btn-sum");
