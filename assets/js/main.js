@@ -8,6 +8,10 @@ const btnDiv = document.getElementById("btn-div");
 const btnDel = document.getElementById("btn-del");
 const btnClear = document.getElementById("btn-clear");
 
+let previousOperand = "0";
+let operator = "";
+let currentOperand = "0";
+
 btnNum.forEach((numbers) => {
   numbers.addEventListener("click", (e) => {
     outputDisplay.textContent += e.target.textContent;
@@ -16,21 +20,25 @@ btnNum.forEach((numbers) => {
 
 btnSum.addEventListener("click", (e) => {
   e.preventDefault();
+  operator = "+";
   outputDisplay.textContent += "+";
 });
 
 btnMin.addEventListener("click", (e) => {
   e.preventDefault();
+  operator = "-";
   outputDisplay.textContent += "-";
 });
 
 btnMultiply.addEventListener("click", (e) => {
   e.preventDefault();
+  operator = "*";
   outputDisplay.textContent += "*";
 });
 
 btnDiv.addEventListener("click", (e) => {
   e.preventDefault();
+  operator = "/";
   outputDisplay.textContent += "/";
 });
 
