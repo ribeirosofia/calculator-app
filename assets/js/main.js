@@ -61,7 +61,6 @@ btnClear.addEventListener("click", (e) => {
 btnEquals.addEventListener("click", (e) => {
   e.preventDefault();
   calc();
-  console.log(previousOperand);
 });
 
 const del = () => {
@@ -114,17 +113,13 @@ const calc = () => {
       break;
     case "/":
       if (numB === "0") {
-        outputDisplay.textContent +=
-          "Cálculo inválido. Impossível divisão por zero";
-        break;
+        outputDisplay.textContent = "Impossível divisão por zero";
+        return;
       } else {
         result = divide(numA, numB);
-        outputDisplay.textContent = result;
-        break;
       }
+      break;
   }
-
-  result = eval(previousOperand);
 
   outputDisplay.textContent = result;
   previousOperand = outputDisplay.textContent;
