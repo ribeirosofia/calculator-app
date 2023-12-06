@@ -95,7 +95,16 @@ const divide = (a, b) => {
 const calc = () => {
   let result;
 
-  let [numA, operator, numB] = previousOperand.split(/([+\-*/])/);
+  const match = previousOperand.match(
+    /(-?\d+(\.\d+)?)\s*([-+*/])\s*(-?\d+(\.\d+)?)/
+  );
+
+  if (!match) {
+    outputDisplay.textContent = "operador inválido";
+    return;
+  }
+
+  const [, numA, , operator, numB] = match;
   console.log(numA, operator, numB);
 
   switch (operator) {
@@ -122,7 +131,7 @@ const calc = () => {
   }
 
   outputDisplay.textContent = result;
-  previousOperand = outputDisplay.textContent;
+  previousOperand = result.toString();
   operator = "";
   currentOperand = "0";
 };
