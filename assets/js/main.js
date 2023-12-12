@@ -1,137 +1,147 @@
-let outputDisplay = document.getElementById("display-num");
+class Calculator {
+  constructor() {
+    this.outputDisplay = document.getElementById("display-num");
 
-const btnNum = document.querySelectorAll(".btn-num");
-const btnSum = document.getElementById("btn-sum");
-const btnMin = document.getElementById("btn-min");
-const btnMultiply = document.getElementById("btn-multiply");
-const btnDiv = document.getElementById("btn-div");
-const btnDel = document.getElementById("btn-del");
-const btnClear = document.getElementById("btn-clear");
-const btnEquals = document.getElementById("btn-equals");
+    this.btnNum = document.querySelectorAll(".btn-num");
+    this.btnSum = document.getElementById("btn-sum");
+    this.btnMin = document.getElementById("btn-min");
+    this.btnMultiply = document.getElementById("btn-multiply");
+    this.btnDiv = document.getElementById("btn-div");
+    this.btnDel = document.getElementById("btn-del");
+    this.btnClear = document.getElementById("btn-clear");
+    this.btnEquals = document.getElementById("btn-equals");
 
-let previousOperand = "";
-let operator = "";
-let currentOperand = "";
+    this.previousOperand = "";
+    this.operator = "";
+    this.currentOperand = "";
+  }
+  addNumber(e) {
+    this.outputDisplay.textContent += e.target.textContent;
+    this.previousOperand = this.outputDisplay.textContent;
+  }
 
-btnNum.forEach((numbers) => {
+  setOperator(operator) {
+    this.operator = operator;
+    this.previousOperand = this.outputDisplay.textContent;
+    this.outputDisplay.textContent += operator;
+  }
+
+  del() {
+    const currentContent = this.outputDisplay.textContent;
+    if (currentContent.length > 0) {
+      this.outputDisplay.textContent = currentContent.slice(0, -1);
+    }
+  }
+
+  clear() {
+    this.outputDisplay.textContent = "";
+    this.previousOperand = "";
+    this.operator = "";
+    this.currentOperand = "";
+  }
+
+  add(a, b) {
+    return parseFloat(a) + parseFloat(b);
+  }
+  minus(a, b) {
+    return parseFloat(a) - parseFloat(b);
+  }
+  multiply(a, b) {
+    return parseFloat(a) * parseFloat(b);
+  }
+  divide(a, b) {
+    if (b !== "0") {
+      return parseFloat(a) / parseFloat(b);
+    }
+  }
+
+  calculate() {
+    let result;
+
+    const match = this.previousOperand.match(
+      /(-?\d+(\.\d+)?)\s*([-+*/])\s*(-?\d+(\.\d+)?)/
+    );
+
+    if (!match) {
+      this.outputDisplay.textContent = "operador inválido";
+      return;
+    }
+
+    const [, numA, , operator, numB] = match;
+    console.log(numA, operator, numB);
+
+    switch (operator) {
+      case "+":
+        result = this.add(numA, numB);
+        this.outputDisplay.textContent = result;
+        break;
+      case "-":
+        result = this.minus(numA, numB);
+        this.outputDisplay.textContent = result;
+        break;
+      case "*":
+        result = this.multiply(numA, numB);
+        this.outputDisplay.textContent = result;
+        break;
+      case "/":
+        if (numB === "0") {
+          this.outputDisplay.textContent = "Impossível divisão por zero";
+          return;
+        } else {
+          result = this.divide(numA, numB);
+        }
+        break;
+    }
+
+    this.outputDisplay.textContent = result;
+    this.previousOperand = result.toString();
+    this.operator = "";
+    this.currentOperand = "0";
+  }
+}
+const calculator = new Calculator();
+
+calculator.btnNum.forEach((numbers) => {
   numbers.addEventListener("click", (e) => {
-    outputDisplay.textContent += e.target.textContent;
-    previousOperand = outputDisplay.textContent;
+    calculator.addNumber(e);
   });
 });
 
-btnSum.addEventListener("click", (e) => {
+calculator.btnSum.addEventListener("click", (e) => {
   e.preventDefault();
   operator = "+";
-  previousOperand = outputDisplay.textContent;
-  outputDisplay.textContent += "+";
+  calculator.setOperator("+");
 });
 
-btnMin.addEventListener("click", (e) => {
+calculator.btnMin.addEventListener("click", (e) => {
   e.preventDefault();
-  operator = "-";
-  previousOperand = outputDisplay.textContent;
-  outputDisplay.textContent += "-";
+  operator = "+";
+  calculator.setOperator("-");
 });
 
-btnMultiply.addEventListener("click", (e) => {
+calculator.btnMultiply.addEventListener("click", (e) => {
   e.preventDefault();
-  operator = "*";
-  previousOperand = outputDisplay.textContent;
-  outputDisplay.textContent += "*";
+  operator = "+";
+  calculator.setOperator("*");
 });
 
-btnDiv.addEventListener("click", (e) => {
+calculator.btnDiv.addEventListener("click", (e) => {
   e.preventDefault();
-  operator = "/";
-  previousOperand = outputDisplay.textContent;
-  outputDisplay.textContent += "/";
+  operator = "+";
+  calculator.setOperator("/");
 });
 
-btnDel.addEventListener("click", (e) => {
+calculator.btnDel.addEventListener("click", (e) => {
   e.preventDefault();
-  del();
+  calculator.del();
 });
 
-btnClear.addEventListener("click", (e) => {
+calculator.btnClear.addEventListener("click", (e) => {
   e.preventDefault();
-  clear();
+  calculator.clear();
 });
 
-btnEquals.addEventListener("click", (e) => {
+calculator.btnEquals.addEventListener("click", (e) => {
   e.preventDefault();
-  calc();
+  calculator.calculate();
 });
-
-const del = () => {
-  const currentContent = outputDisplay.textContent;
-  if (currentContent.length > 0) {
-    outputDisplay.textContent = currentContent.slice(0, -1);
-  }
-};
-
-const clear = () => {
-  outputDisplay.textContent = "";
-  previousOperand = "";
-  operator = "";
-  currentOperand = "";
-};
-
-const add = (a, b) => {
-  return parseFloat(a) + parseFloat(b);
-};
-const minus = (a, b) => {
-  return parseFloat(a) - parseFloat(b);
-};
-const multiply = (a, b) => {
-  return parseFloat(a) * parseFloat(b);
-};
-const divide = (a, b) => {
-  if (b !== "0") {
-    return parseFloat(a) / parseFloat(b);
-  }
-};
-
-const calc = () => {
-  let result;
-
-  const match = previousOperand.match(
-    /(-?\d+(\.\d+)?)\s*([-+*/])\s*(-?\d+(\.\d+)?)/
-  );
-
-  if (!match) {
-    outputDisplay.textContent = "operador inválido";
-    return;
-  }
-
-  const [, numA, , operator, numB] = match;
-  console.log(numA, operator, numB);
-
-  switch (operator) {
-    case "+":
-      result = add(numA, numB);
-      outputDisplay.textContent = result;
-      break;
-    case "-":
-      result = minus(numA, numB);
-      outputDisplay.textContent = result;
-      break;
-    case "*":
-      result = multiply(numA, numB);
-      outputDisplay.textContent = result;
-      break;
-    case "/":
-      if (numB === "0") {
-        outputDisplay.textContent = "Impossível divisão por zero";
-        return;
-      } else {
-        result = divide(numA, numB);
-      }
-      break;
-  }
-
-  outputDisplay.textContent = result;
-  previousOperand = result.toString();
-  operator = "";
-  currentOperand = "0";
-};
