@@ -29,7 +29,7 @@ This project was build with the following technologies:
 - Git and Github
 - Figma
 
-## 💻 Projeto
+## 💻 Project
 
 The calculator was ment to be a way to study basic logic in Javascript. The features in this app can perform the 4 operations.
 
