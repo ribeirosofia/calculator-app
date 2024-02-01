@@ -33,7 +33,7 @@ This project was build with the following technologies:
 
 The calculator was ment to be a way to study basic logic in Javascript. The features in this app can perform the 4 operations.
 
-- [Click here to access the project link](https://github.com/ribeirosofia/calculator-app)
+- [Click here to access the project link](https://ribeirosofia.github.io/calculator-app/)
 
 
 
